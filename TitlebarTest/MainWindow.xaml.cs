@@ -1,36 +1,24 @@
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using System;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+namespace TitlebarTest;
 
-namespace TitlebarTest
+public sealed partial class MainWindow : Window
 {
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-            ExtendsContentIntoTitleBar = true;
-        }
+        InitializeComponent();
+        ExtendsContentIntoTitleBar = true;
+    }
 
-        private int ThemeSelectedIndex
-        {
-            get => ((FrameworkElement)App.MainWindow.Content).RequestedTheme switch
-            {
-                ElementTheme.Light => 1,
-                ElementTheme.Dark => 2,
-                _ => 0
-            };
-            set => ((FrameworkElement)App.MainWindow.Content).RequestedTheme = value switch
-            {
-                1 => ElementTheme.Light,
-                2 => ElementTheme.Dark,
-                _ => ElementTheme.Default
-            };
-        }
+    private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+    {
+        titleBar.IsBackButtonVisible = toggleSwitch.IsOn;
+    }
 
+    private void titleBar_BackRequested(TitleBar sender, object args)
+    {
+        ClickEventTxtBlock.Text = "Back button clicked: " + DateTime.Now.ToString();
     }
 }
