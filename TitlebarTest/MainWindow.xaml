@@ -27,8 +27,8 @@
             Orientation="Vertical">
             <TextBlock HorizontalAlignment="Center">
                 <Run Text="1. Launch the app (IsBackButtonVisible is set to False in XAML)" /><LineBreak />
-                <Run Text="2. Set IsBackButtonVisible to true with the toggle" /> <LineBreak />
-                <Run Text="3. Click the Back button; it drags the window" /> <LineBreak />
+                <Run Text="2. Set IsBackButtonVisible to true in C# with the toggle" /> <LineBreak />
+                <Run Text="3. Click the Back button; it drags the window and no BackRequested event" /> <LineBreak />
                 <Run Text="4. Click it again; the BackRequested event gets triggered but animation/pressed state is not shown" /> <LineBreak />
                 <Run Text="5. Maximize the window or toggle on/off again fix it" />
             </TextBlock>
